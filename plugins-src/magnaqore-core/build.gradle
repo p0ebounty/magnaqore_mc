@@ -14,11 +14,13 @@ java {
 repositories {
     mavenCentral()
     maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://maven.enginehub.org/repo/' }
 }
 
 dependencies {
     compileOnly 'io.papermc.paper:paper-api:26.2.build.116-stable'
     compileOnly 'net.luckperms:api:5.4'
+    compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.4.5'
 }
 
 processResources {

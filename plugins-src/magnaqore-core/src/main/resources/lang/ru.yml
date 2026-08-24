@@ -7,6 +7,6 @@ welcome-subtitle: "<gray>Добро пожаловать, <aqua><name></aqua></g
 welcome-line: "<gray>Выживание с приватами. Начни со <aqua>/spawn</aqua>, защити базу <aqua>золотой лопатой</aqua>.</gray>"
 spawn-done: "<gray>Ты на спавне.</gray>"
 spawn-players-only: "<#FF6B6B>Команда только для игроков.</#FF6B6B>"
-mqspawn-usage: "<gray>Использование: <aqua>/mqspawn build [x z]</aqua></gray>"
+mqspawn-usage: "<gray>Использование: <aqua>/mqspawn build|paste <файл> [x z] [y]|flatten <hx> <hz>|setpoint <x> <y> <z>|list</aqua></gray>"
 mqspawn-building: "<gray>Строю спавн-площадь…</gray>"
 mqspawn-done: "<#7CFC9B>Спавн построен и установлен.</#7CFC9B>"

@@ -4,6 +4,7 @@ main: net.magnaqore.core.MagnaQoreCore
 api-version: '1.21'
 author: MagnaQore
 description: MagnaQore network core - branded UI, RU/EN localization, spawn.
+depend: [WorldEdit]
 softdepend: [LuckPerms]
 commands:
   spawn:
@@ -11,7 +12,7 @@ commands:
     usage: /spawn
   mqspawn:
     description: Rebuild the custom spawn plaza (dev tool)
-    usage: /mqspawn build [x z]
+    usage: /mqspawn <build|paste|flatten|setpoint|list> ...
     permission: magnaqore.dev
 permissions:
   magnaqore.dev:
