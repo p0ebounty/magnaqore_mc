@@ -9,7 +9,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ENV_NAME=dev
 BASE="$ROOT/minecraft/$ENV_NAME"
 
-SERVERS=(lobby survival velocity)   # start order; stop order is reversed
+SERVERS=(survival velocity)   # start order; stop order is reversed. Lobby joins in phase 4 (2+ modes).
 
 jar_of()  { case "$1" in velocity) echo velocity.jar ;; *) echo paper.jar ;; esac; }
 heap_of() { case "$1" in velocity) echo "-Xms256M -Xmx512M" ;; lobby) echo "-Xms512M -Xmx1G" ;; survival) echo "-Xms1G -Xmx2560M" ;; esac; }
