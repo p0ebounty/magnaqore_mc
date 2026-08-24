@@ -1,0 +1,9 @@
+# MagnaQore locale: English. MiniMessage format, style per docs/STYLE.md.
+join: "<dark_gray>[</dark_gray><#7CFC9B>+</#7CFC9B><dark_gray>]</dark_gray> <gray><name></gray>"
+quit: "<dark_gray>[</dark_gray><#FF6B6B>-</#FF6B6B><dark_gray>]</dark_gray> <gray><name></gray>"
+first-join: "<gray>First time with us: <aqua><name></aqua></gray>"
+welcome-title: "<gradient:#8A2BE2:#00CED1><b>MagnaQore</b></gradient>"
+welcome-subtitle: "<gray>Welcome, <aqua><name></aqua></gray>"
+welcome-line: "<gray>Survival with land claims. Start with <aqua>/spawn</aqua>, protect your base with a <aqua>golden shovel</aqua>.</gray>"
+spawn-done: "<gray>You are at spawn.</gray>"
+spawn-players-only: "<#FF6B6B>Only players can use this.</#FF6B6B>"

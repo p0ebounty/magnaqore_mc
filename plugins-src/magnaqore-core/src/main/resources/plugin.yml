@@ -1,0 +1,11 @@
+name: MagnaQoreCore
+version: '${version}'
+main: net.magnaqore.core.MagnaQoreCore
+api-version: '1.21'
+author: MagnaQore
+description: MagnaQore network core - branded UI, RU/EN localization, spawn.
+softdepend: [LuckPerms]
+commands:
+  spawn:
+    description: Teleport to the server spawn / Телепорт на спавн
+    usage: /spawn

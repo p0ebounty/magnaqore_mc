@@ -123,6 +123,20 @@
       "dest": ["minecraft/dev/limbo/NanoLimbo.jar"]
     },
     {
+      "name": "tab",
+      "version": "6.1.2",
+      "_comment": "tablist header/footer, sorting, scoreboard — themed per docs/STYLE.md",
+      "url": "https://cdn.modrinth.com/data/gG7VFbG0/versions/Za7G9fdJ/TAB%20v6.1.2.jar",
+      "dest": ["minecraft/dev/survival/plugins/TAB.jar"]
+    },
+    {
+      "name": "pl3xmap",
+      "version": "26.2-554",
+      "_comment": "web live map, bound to localhost (used for world verification + later public via reverse proxy)",
+      "url": "https://cdn.modrinth.com/data/34T8oVNY/versions/2BipH1Kz/Pl3xMap-26.2-554.jar",
+      "dest": ["minecraft/dev/survival/plugins/Pl3xMap.jar"]
+    },
+    {
       "name": "grimac",
       "version": "2.3.74",
       "_comment": "anticheat; supports 1.7.2-26.2, auto-exempts Bedrock players via Floodgate API on the backend",

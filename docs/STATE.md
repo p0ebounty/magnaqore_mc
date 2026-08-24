@@ -2,7 +2,15 @@
 
 > **Правило**: этот файл читается ПЕРВЫМ при продолжении работы (после сжатия контекста или новой сессии) и обновляется после каждого значимого шага. Подробности решений — docs/DECISIONS.md, план — docs/ROADMAP.md.
 
-**Обновлено**: 2026-08-24, конец первой рабочей сессии (Фаза 0 ✅, Фаза 1 почти ✅)
+**Обновлено**: 2026-08-24, вторая сессия (Фаза 1 ✅ принята юзером; Фаза 1.5 в разгаре)
+
+## Свежие изменения (Фаза 1.5, сессия 2)
+- **Мир пересоздан**: сид `-7203507603979108244` (Cherry Blossom Valley) — спавн в вишнёвой роще (32 блока) в кольце гор, деревня в ~970 блоках. Подтверждено скриншотом карты.
+- Worldborder: овер 10000, незер 1250 (центр 0,0). **Chunky прегенерирует овер r=5000 — идёт часами в фоне**; после завершения запустить незер: `chunky world world_nether; chunky radius 625; chunky start`. После рестарта survival преген НЕ продолжается сам — нужно `chunky continue`.
+- **MagnaQoreCore 0.1.0** (plugins-src/magnaqore-core, Gradle, paper-api 26.2): локализация RU/EN по локали клиента, фирменный чат (префикс LP + «ник » текст»), кастомные вход/выход [+]/[-], титул-приветствие, первый вход, /spawn. Сборка+деплой: `infra/build-core.sh`.
+- **Дизайн-система docs/STYLE.md** (требование юзера-перфекциониста: никаких дефолтов, всё в едином стиле). Применено: MOTD, лимбо, TAB (хедер/футер), LibreLogin (32 сообщения: титулы/промпты/ошибки, MiniMessage, RU·EN), префикс админа ✦.
+- **TAB 6.1.2** (таб-лист в стиле, сортировка admin>moder>vip>default), **Pl3xMap 26.2-554** (веб-карта на 127.0.0.1:8080 — смотреть скриншотом playwright; наружу вынесем на prod-этапе за reverse proxy).
+- LP-группа admin (вес 100, `*`), юзер p0ebounty — админ (op 4 + группа).
 
 ## Что работает прямо сейчас
 
@@ -33,8 +41,14 @@ Dev-сеть ЗАПУЩЕНА и видна из интернета (прове�
 8. В git не закоммичены jar-ы и миры (by design, см. .gitignore); секреты в infra/secrets/.
 
 ## Следующие шаги (по приоритету)
-1. **Юзер заходит на dev-сервер и проверяет** (IP: 72.61.185.5, Java-порт 25566, Bedrock-порт 19133) — критерий приёмки Фазы 1.
-2. ✅ GitHub подключён: `git@github.com:p0ebounty/magnaqore_mc.git`, пуш через SSH-алиас `github-magnaqore` (на VPS есть чужой deploy key под `Host github.com` — не трогать!). Пушить после каждой пачки коммитов.
+1. Дождаться конца прегена овера → запустить незер (см. выше), проверить `chunky continue` после рестартов.
+2. Спавн-схематика: найти бесплатную (Planet Minecraft «with downloadable schematic» / BuiltByBit free), лицензия+кредит в docs/CREDITS.md, вставить WorldEdit у спавна, setworldspawn, WG-регион спавна.
+3. Контент: Jobs Reborn, могилы (AngelChest/GravesX), AntiRelog, LP-группы vip/moder (+prefix ✦-стиль).
+4. Стиль дальше: Essentials messages (игровые команды), Sonar kick-экраны, GriefPrevention messages — чек-лист в docs/STYLE.md.
+5. MagnaQoreCore v0.2: /help замена (брендовое меню команд), задел статистики в Postgres.
+6. Prod-этап по ROADMAP (systemd, nftables, DNS, домен от юзера).
+
+Справка: GitHub — `git@github.com:p0ebounty/magnaqore_mc.git`, пуш через SSH-алиас `github-magnaqore` (на VPS чужой deploy key под `Host github.com` — не трогать!). Юзер принял Фазу 1 заходом с Java 26.2.
 3. Фаза 1.5 (см. ROADMAP): сид+прегенерация мира, спавн-схематика, MagnaQoreCore (свой плагин), Jobs/могилы/анти-комбатлог, группы LuckPerms.
 4. Двуязычность RU/EN (требование юзера): исследовать Triton vs свои переводы в плагинах + языки Sonar/LibreLogin/Essentials.
 5. Prod-этап: systemd, nftables, fail2ban, DNS (юзер даст домен), TCPShield Free.

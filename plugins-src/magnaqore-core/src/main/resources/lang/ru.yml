@@ -1,0 +1,9 @@
+# Локаль MagnaQore: русский. Формат MiniMessage, стиль — docs/STYLE.md.
+join: "<dark_gray>[</dark_gray><#7CFC9B>+</#7CFC9B><dark_gray>]</dark_gray> <gray><name></gray>"
+quit: "<dark_gray>[</dark_gray><#FF6B6B>-</#FF6B6B><dark_gray>]</dark_gray> <gray><name></gray>"
+first-join: "<gray>Впервые с нами: <aqua><name></aqua></gray>"
+welcome-title: "<gradient:#8A2BE2:#00CED1><b>MagnaQore</b></gradient>"
+welcome-subtitle: "<gray>Добро пожаловать, <aqua><name></aqua></gray>"
+welcome-line: "<gray>Выживание с приватами. Начни со <aqua>/spawn</aqua>, защити базу <aqua>золотой лопатой</aqua>.</gray>"
+spawn-done: "<gray>Ты на спавне.</gray>"
+spawn-players-only: "<#FF6B6B>Команда только для игроков.</#FF6B6B>"
