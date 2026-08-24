@@ -137,6 +137,34 @@
       "dest": ["minecraft/dev/survival/plugins/Pl3xMap.jar"]
     },
     {
+      "name": "gravesx",
+      "version": "2026.4.9.1",
+      "_comment": "player graves on death (maintained fork of Ranull's Graves)",
+      "url": "https://cdn.modrinth.com/data/vCFaodCy/versions/JpbCUK5u/GravesX-2026.4.9.1.jar",
+      "dest": ["minecraft/dev/survival/plugins/GravesX.jar"]
+    },
+    {
+      "name": "antirelog",
+      "version": "3.1.4.1",
+      "_comment": "combat-log protection (RU-standard), supports 26.2",
+      "url": "https://cdn.modrinth.com/data/e9FIeeYS/versions/g4KVOkiH/antirelog-3.1.4.1.jar",
+      "dest": ["minecraft/dev/survival/plugins/AntiRelog.jar"]
+    },
+    {
+      "name": "cmilib",
+      "version": "1.5.9.6",
+      "_comment": "Zrips library, required by Jobs; carries the version-specific internals (2026-05, supports 26.x)",
+      "url": "https://github.com/Zrips/CMILib/releases/download/1.5.9.6/CMILib1.5.9.6.jar",
+      "dest": ["minecraft/dev/survival/plugins/CMILib.jar"]
+    },
+    {
+      "name": "jobs-reborn",
+      "version": "5.2.6.3",
+      "_flag": "GitHub release 2025-08 (pre-26.x) — watch logs on 26.2; newer builds are Spigot-gated",
+      "url": "https://github.com/Zrips/Jobs/releases/download/v5.2.6.3/Jobs5.2.6.3.jar",
+      "dest": ["minecraft/dev/survival/plugins/Jobs.jar"]
+    },
+    {
       "name": "grimac",
       "version": "2.3.74",
       "_comment": "anticheat; supports 1.7.2-26.2, auto-exempts Bedrock players via Floodgate API on the backend",

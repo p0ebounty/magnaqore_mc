@@ -1,0 +1,92 @@
+# items.yml - кулдауны предметов во время PvP
+# Значение time: 0 - кулдаун отключен
+# Значение time: -1 - использование предмета запрещено во время PvP
+#
+# Доступные обработчики (handlers):
+#   CONSUME - при употреблении предмета
+#   RIGHT_CLICK_AIR - ПКМ по воздуху
+#   RIGHT_CLICK_BLOCK - ПКМ по блоку
+#   LEFT_CLICK_AIR - ЛКМ по воздуху
+#   LEFT_CLICK_BLOCK - ЛКМ по блоку
+#   BLOCK_BREAK - при разрушении блока
+#   RESURRECT_MAINHAND - тотем в основной руке
+#   RESURRECT_OFFHAND - тотем в дополнительной руке
+#   LAUNCH - метание снаряда (жемчуг края)
+#
+# checked-meta - что проверять при совпадении:
+#   MATERIAL - только материал
+#   DISPLAY_NAME - название предмета
+#   LORE - описание предмета
+#
+# set-material-cooldown - показывать кулдаун в UI клиента (требует ProtocolLib)
+#
+# base64 - кодировка предмета для кастомных предметов (через /antirelog copy)
+#   Если base64 указан, проверка идёт по NBT данных предмета вместо материала
+
+items-cooldowns:
+  CHORUS_FRUIT:
+    handlers:
+      - CONSUME
+    checked-meta:
+      - MATERIAL
+    base64: 'dj0yOTc1LHR5cGU9Q0hPUlVTX0ZSVUlU'
+    time: 7
+    set-material-cooldown: true
+
+  GOLDEN_APPLE:
+    handlers:
+      - CONSUME
+    checked-meta:
+      - MATERIAL
+    base64: 'dj0yOTc1LHR5cGU9R09MREVOX0FQUExF'
+    time: 30
+    set-material-cooldown: true
+
+  ENCHANTED_GOLDEN_APPLE:
+    handlers:
+      - CONSUME
+    checked-meta:
+      - MATERIAL
+    base64: 'dj0yOTc1LHR5cGU9RU5DSEFOVEVEX0dPTERFTl9BUFBMRQ=='
+    time: 60
+    set-material-cooldown: true
+
+  ENDER_PEARL:
+    handlers:
+      - LAUNCH
+    checked-meta:
+      - MATERIAL
+    base64: 'dj0yOTc1LHR5cGU9RU5ERVJfUEVBUkw='
+    time: 15
+    set-material-cooldown: true
+
+  TOTEM_OF_UNDYING:
+    handlers:
+      - RESURRECT_MAINHAND
+      - RESURRECT_OFFHAND
+    checked-meta:
+      - MATERIAL
+    base64: 'dj0yOTc1LHR5cGU9VE9URU1fT0ZfVU5EWUlORw=='
+    time: 60
+    set-material-cooldown: true
+
+  FIREWORK_ROCKET:
+    handlers:
+      - RIGHT_CLICK_AIR
+    checked-meta:
+      - MATERIAL
+    base64: ''
+    time: 60
+    set-material-cooldown: true
+
+  # Пример: добавить свой предмет
+  # SHIELD:
+  #   handlers:
+  #     - RIGHT_CLICK_AIR
+  #     - RIGHT_CLICK_BLOCK
+  #   checked-meta:
+  #     - MATERIAL
+  #   base64: ''
+  #   time: 10
+  #   set-material-cooldown: true
+  #   message: '&cПодождите %time% сек.!'
