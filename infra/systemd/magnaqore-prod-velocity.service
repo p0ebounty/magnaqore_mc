@@ -1,0 +1,16 @@
+# Prod proxy unit. Install: infra/install-prod-units.sh (prod launch phase).
+[Unit]
+Description=MagnaQore prod Velocity proxy
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/projects/server/minecraft/prod/velocity
+ExecStart=/usr/lib/jvm/temurin-25-jdk-amd64/bin/java -Xms512M -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity.jar
+Restart=on-failure
+RestartSec=10
+StandardInput=null
+
+[Install]
+WantedBy=multi-user.target

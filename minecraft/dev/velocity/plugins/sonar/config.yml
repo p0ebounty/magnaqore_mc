@@ -44,19 +44,19 @@ attack-tracker:
 database:
   # Type of database Sonar uses to store verified players
   # Possible types: NONE, MYSQL, MARIADB, POSTGRESQL, H2
-  type: NONE
+  type: POSTGRESQL
   # File in Sonar's plugin directory used for the H2 database
   filename: verified_players
   # Host address for authenticating with the SQL database
-  host: localhost
+  host: 127.0.0.1
   # Port for authenticating with the SQL database
-  port: 3306
+  port: 5432
   # Name of the SQL database
-  name: sonar
+  name: magnaqore_dev
   # Username for authenticating with the SQL database
-  username: ''
+  username: magnaqore
   # Password for authenticating with the SQL database
-  password: ''
+  password: 2d0b1561690692486e15259c238c8556f2555b9b793ab9a0
   # How many days should Sonar keep verified players in the database?
   maximum-age: 5
 
@@ -112,7 +112,7 @@ verification:
       # Style of the map CAPTCHA (Default: 'modern').
       # To use the old design, set this to 'legacy'.
       # To use an experimental design, set this to 'complex'.
-      style: 'modern'
+      style: modern
       # How many CAPTCHA answers should Sonar prepare?
       # This task happens asynchronously in the background
       precompute: 500
@@ -124,7 +124,7 @@ verification:
       # Characters (letters/numbers) that are allowed to appear in the answer to the CAPTCHA
       # It is not recommended to add numbers or letters that might look like one another.
       # You should only edit this if you know what you're doing
-      alphabet: 'abcdefhjkmnoprstuxyz'
+      alphabet: abcdefhjkmnoprstuxyz
       # Should Sonar place the map in the player's offhand?
       # This only works on Minecraft 1.9 and above.
       place-in-offhand: false
@@ -163,7 +163,7 @@ verification:
     # Which server should Sonar transfer the player to when the verification is passed?
     # Please enter the server IP used by players to normally connect to your server.
     # For example, you can put "mc.hypixel.net" or a direct IP like "1.1.1.1"
-    destination-host: "play.my-server.com"
+    destination-host: play.my-server.com
     # Which port should Sonar use when transferring the player to the origin server?
     # If your server does not need a port to connect to, you can leave this as 25565.
     # If you are using forced hosts (use-handshake-hostname: true), set this to
@@ -185,7 +185,7 @@ verification:
   # Sonar caches most packets it sends to the client, including the LoginSuccess packet.
   # Which username should Sonar use for the LoginSuccess packet?
   # The username will not be visible to the player without client modifications
-  cached-username: "Sonar"
+  cached-username: Sonar
   # Should Sonar log new verification attempts?
   log-connections: true
   # Should Sonar log new verification attempts during attacks?

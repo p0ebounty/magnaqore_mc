@@ -426,49 +426,49 @@ info:
     zombified_piglin: Zombified piglin
   # Avoid adding color codes to the enchant name
   EnchantNames:
-    impaling: Impaling
-    swift_sneak: Swift_Sneak
-    efficiency: Efficiency
-    lure: Lure
     depth_strider: Depth_Strider
-    silk_touch: Silk_Touch
-    aqua_affinity: Aqua_Affinity
-    fortune: Fortune
-    fire_protection: Fire_Protection
-    knockback: Knockback
-    power: Power
-    thorns: Thorns
-    respiration: Respiration
-    projectile_protection: Projectile_Protection
-    lunge: Lunge
-    blast_protection: Blast_Protection
     punch: Punch
-    quick_charge: Quick_Charge
+    unbreaking: Unbreaking
+    mending: Mending
+    protection: Protection
+    fortune: Fortune
+    respiration: Respiration
+    lure: Lure
+    efficiency: Efficiency
+    projectile_protection: Projectile_Protection
+    frost_walker: Frost_Walker
+    binding_curse: Binding_Curse
     density: Density
+    power: Power
+    fire_protection: Fire_Protection
+    flame: Flame
+    bane_of_arthropods: Bane_Of_Arthropods
+    quick_charge: Quick_Charge
+    aqua_affinity: Aqua_Affinity
+    silk_touch: Silk_Touch
+    breach: Breach
+    vanishing_curse: Vanishing_Curse
+    looting: Looting
+    feather_falling: Feather_Falling
     infinity: Infinity
     multishot: Multishot
-    breach: Breach
-    soul_speed: Soul_Speed
-    looting: Looting
-    riptide: Riptide
-    loyalty: Loyalty
-    smite: Smite
-    frost_walker: Frost_Walker
-    piercing: Piercing
-    channeling: Channeling
-    luck_of_the_sea: Luck_Of_The_Sea
-    mending: Mending
-    unbreaking: Unbreaking
     sharpness: Sharpness
-    wind_burst: Wind_Burst
+    swift_sneak: Swift_Sneak
+    loyalty: Loyalty
+    soul_speed: Soul_Speed
+    thorns: Thorns
     fire_aspect: Fire_Aspect
-    flame: Flame
-    binding_curse: Binding_Curse
-    vanishing_curse: Vanishing_Curse
-    bane_of_arthropods: Bane_Of_Arthropods
-    feather_falling: Feather_Falling
-    protection: Protection
+    luck_of_the_sea: Luck_Of_The_Sea
+    wind_burst: Wind_Burst
+    lunge: Lunge
+    blast_protection: Blast_Protection
+    piercing: Piercing
     sweeping_edge: Sweeping_Edge
+    channeling: Channeling
+    knockback: Knockback
+    riptide: Riptide
+    impaling: Impaling
+    smite: Smite
   PotionEffectAliases:
     conduitpower:
     - Conduit power

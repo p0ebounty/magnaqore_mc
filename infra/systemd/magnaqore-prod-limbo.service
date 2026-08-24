@@ -1,0 +1,15 @@
+# Prod auth-limbo unit. Install: infra/install-prod-units.sh (prod launch phase).
+[Unit]
+Description=MagnaQore prod NanoLimbo (auth)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/projects/server/minecraft/prod/limbo
+ExecStart=/usr/lib/jvm/temurin-25-jdk-amd64/bin/java -Xms64M -Xmx128M -jar NanoLimbo.jar
+Restart=on-failure
+RestartSec=10
+StandardInput=null
+
+[Install]
+WantedBy=multi-user.target
