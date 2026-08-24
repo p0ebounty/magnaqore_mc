@@ -105,6 +105,25 @@ public final class MqSpawnCommand implements CommandExecutor {
                 world.setSpawnLocation(loc);
                 sender.sendMessage(text("spawn point set", NamedTextColor.GREEN));
             }
+            case "regen" -> {
+                if (args.length < 5) {
+                    sender.sendMessage(plugin.lang().msg(sender, "mqspawn-usage"));
+                    return true;
+                }
+                int x1 = Integer.parseInt(args[1]);
+                int z1 = Integer.parseInt(args[2]);
+                int x2 = Integer.parseInt(args[3]);
+                int z2 = Integer.parseInt(args[4]);
+                sender.sendMessage(text("regenerating " + x1 + "," + z1 + " .. " + x2 + "," + z2
+                        + "…", NamedTextColor.GRAY));
+                try {
+                    SchematicPaster.regen(world, x1, z1, x2, z2);
+                    sender.sendMessage(text("region regenerated to seed terrain", NamedTextColor.GREEN));
+                } catch (Exception e) {
+                    sender.sendMessage(text("regen failed: " + e.getMessage(), NamedTextColor.RED));
+                    plugin.getLogger().warning("regen failed: " + e);
+                }
+            }
             case "list" -> {
                 File[] files = schematicsDir().listFiles((d, n) ->
                         n.endsWith(".schem") || n.endsWith(".schematic"));

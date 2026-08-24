@@ -94,4 +94,16 @@ public final class SchematicPaster {
     public static Location spawnPointOn(World world, int x, int z, int y) {
         return new Location(world, x + 0.5, y + 1, z + 0.5, 180f, 0f);
     }
+
+    /** Regenerates a box back to seed-original terrain (full height). */
+    public static void regen(World world, int x1, int z1, int x2, int z2) throws Exception {
+        var weWorld = BukkitAdapter.adapt(world);
+        var region = new com.sk89q.worldedit.regions.CuboidRegion(
+                weWorld,
+                BlockVector3.at(Math.min(x1, x2), weWorld.getMinY(), Math.min(z1, z2)),
+                BlockVector3.at(Math.max(x1, x2), weWorld.getMaxY(), Math.max(z1, z2)));
+        try (EditSession session = WorldEdit.getInstance().newEditSession(weWorld)) {
+            weWorld.regenerate(region, session);
+        }
+    }
 }
