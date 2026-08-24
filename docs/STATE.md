@@ -53,17 +53,13 @@ Dev-сеть ЗАПУЩЕНА и видна из интернета (прове�
 8. В git не закоммичены jar-ы и миры (by design, см. .gitignore); секреты в infra/secrets/.
 
 ## Следующие шаги (по приоритету)
-1. Дождаться конца прегена овера → запустить незер (см. выше), проверить `chunky continue` после рестартов.
-2. Спавн-схематика: ⚠️ требование юзера — БЕЗ указания чужих авторов в игре. Искать только свободные лицензии без обязательного кредита (CC0 / «no credit required»), иначе строим/генерируем сами. Вставить WorldEdit у спавна, setworldspawn, WG-регион спавна.
-3. Контент: Jobs Reborn, могилы (AngelChest/GravesX), AntiRelog, LP-группы vip/moder (+prefix ✦-стиль).
-4. Стиль дальше: Essentials messages (игровые команды), Sonar kick-экраны, GriefPrevention messages — чек-лист в docs/STYLE.md.
-5. MagnaQoreCore v0.2: /help замена (брендовое меню команд), задел статистики в Postgres.
-6. Prod-этап по ROADMAP (systemd, nftables, DNS, домен от юзера).
+1. Прегену овера дать дойти (следить `chunky continue` после рестартов) → потом незер: `chunky world world_nether; chunky radius 625; chunky start`.
+2. Стиль дальше (чек-лист в docs/STYLE.md): GriefPrevention messages, GravesX/AntiRelog/Jobs сообщения, Sonar kick-экраны + база verified.
+3. MagnaQoreCore v0.2: /help замена (брендовое меню), статистика в Postgres, группа vip (префикс).
+4. Prod-этап по ROADMAP: systemd, non-root юзер, nftables/fail2ban, DNS (спросить домен у юзера), deop всех (права только через LP), TCPShield Free.
+5. Фаза 3: Discord, сайт Next.js, голосования.
 
-Справка: GitHub — `git@github.com:p0ebounty/magnaqore_mc.git`, пуш через SSH-алиас `github-magnaqore` (на VPS чужой deploy key под `Host github.com` — не трогать!). Юзер принял Фазу 1 заходом с Java 26.2.
-3. Фаза 1.5 (см. ROADMAP): сид+прегенерация мира, спавн-схематика, MagnaQoreCore (свой плагин), Jobs/могилы/анти-комбатлог, группы LuckPerms.
-4. Двуязычность RU/EN (требование юзера): исследовать Triton vs свои переводы в плагинах + языки Sonar/LibreLogin/Essentials.
-5. Prod-этап: systemd, nftables, fail2ban, DNS (юзер даст домен), TCPShield Free.
+Справка: GitHub — `git@github.com:p0ebounty/magnaqore_mc.git`, пуш через SSH-алиас `github-magnaqore` (на VPS чужой deploy key под `Host github.com` — не трогать!). Юзер: полностью делегировал UX-решения («придумывай сам, чтобы игрокам было хорошо»), Фаза 1 принята.
 
 ## Как проверить, что всё живо
 ```bash
