@@ -21,7 +21,7 @@ while IFS= read -r item; do
 
   if [ ! -f "$cachefile" ] || { [ -n "$sha" ] && ! echo "$sha  $cachefile" | sha256sum -c --quiet 2>/dev/null; }; then
     echo ">> downloading $name $version"
-    curl -fsSL --retry 3 --retry-delay 2 -o "$cachefile.tmp" "$url"
+    curl -fsSL -A "MagnaQore/1.0 (server-setup)" --retry 3 --retry-delay 2 -o "$cachefile.tmp" "$url"
     mv "$cachefile.tmp" "$cachefile"
     if [ -n "$sha" ] && ! echo "$sha  $cachefile" | sha256sum -c --quiet; then
       echo "!! sha256 mismatch for $name $version"; fail=1; continue

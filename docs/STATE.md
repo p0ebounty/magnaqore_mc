@@ -1,0 +1,48 @@
+# STATE — контрольная точка проекта
+
+> **Правило**: этот файл читается ПЕРВЫМ при продолжении работы (после сжатия контекста или новой сессии) и обновляется после каждого значимого шага. Подробности решений — docs/DECISIONS.md, план — docs/ROADMAP.md.
+
+**Обновлено**: 2026-08-24, конец первой рабочей сессии (Фаза 0 ✅, Фаза 1 почти ✅)
+
+## Что работает прямо сейчас
+
+Dev-сеть ЗАПУЩЕНА и видна из интернета (проверено внешним пингом api.mcsrvstat.us):
+
+| Процесс | tmux-сессия | Порт | Статус |
+|---|---|---|---|
+| Velocity 4.0.0-6 | mq-dev-velocity | 0.0.0.0:25566 TCP | ✅ работает |
+| Geyser (Bedrock) | (плагин velocity) | 0.0.0.0:19133 UDP | ✅ работает |
+| NanoLimbo 1.13.0 (авторизация) | mq-dev-limbo | 127.0.0.1:25590 | ✅ работает |
+| Paper 26.2-116 survival | mq-dev-survival | 127.0.0.1:25592 | ✅ работает |
+
+- Управление: `infra/dev.sh start|stop|status|cmd|console`
+- Java: Temurin 25 (`/usr/lib/jvm/temurin-25-jdk-amd64/bin/java`), путь зашит в dev.sh
+- PostgreSQL: LuckPerms (storage+messaging) и LibreLogin пишут в `magnaqore_dev` — проверено (таблицы luckperms_*, librepremium_data)
+- Velocity-плагины: Geyser, Floodgate, LibreLoginProd 0.25.11 (auth), LuckPerms, Sonar 2.1.50 (антибот), EpicGuard 7.6.1 (гео/VPN), AntiCrasher 2.0.11, spark
+- Survival-плагины: LuckPerms, EssentialsX 2.22.1-dev (сборка 1825), WorldEdit 7.4.5, WorldGuard 7.0.18, GrimAC 2.3.74 (античит), GriefPrevention 16.18.7, ViaVersion+ViaBackwards 5.11.0 (клиенты 1.7.2–26.2), Chunky, Vault(Unlocked), PlaceholderAPI, floodgate-spigot
+- Поток игрока: вход через 25566 → Sonar/EpicGuard-проверки → NanoLimbo (пока не авторизован, /register /login; premium — автовход; Bedrock — без пароля) → survival
+
+## Известные проблемы / флаги
+1. **CoreProtect 24.0 не работает на 26.2** (сам отключился) — убран; вернуть, когда выйдет совместимая сборка (роллбек-логирование гриферства сейчас ОТСУТСТВУЕТ).
+2. **FAWE 2.15.4 падал на инициализации мира** на 26.2 — заменён на обычный WorldEdit 7.4.5; FAWE пересмотреть позже (для больших вставок схематик).
+3. GrimAC предупреждает: ViaBackwards на 26.2 — возможны ложные срабатывания у СТАРЫХ клиентов в транспорте (лодки/лошади). Наблюдать.
+4. EssentialsX — dev-сборка (стабильная 2.22.0 не поддерживает 26.2); перепиновать на релиз 2.23.0, когда выйдет.
+5. Velocity 4 выбран вынужденно (свежий Geyser требует его adventure-библиотеку) — экосистема плагинов местами ещё на 3.x; при добавлении velocity-плагинов проверять совместимость.
+6. Sonar: не настроена база verified-игроков (warning в логе), язык EN. `transfer.enabled: false` — НЕ включать (ломает Geyser).
+7. Firewall (ufw) ВЫКЛЮЧЕН — сознательно до prod-этапа (наружу торчат только ssh/25566/19133).
+8. В git не закоммичены jar-ы и миры (by design, см. .gitignore); секреты в infra/secrets/.
+
+## Следующие шаги (по приоритету)
+1. **Юзер заходит на dev-сервер и проверяет** (IP: 72.61.185.5, Java-порт 25566, Bedrock-порт 19133) — критерий приёмки Фазы 1.
+2. GitHub: юзер создаёт репозиторий + deploy key → первый push.
+3. Фаза 1.5 (см. ROADMAP): сид+прегенерация мира, спавн-схематика, MagnaQoreCore (свой плагин), Jobs/могилы/анти-комбатлог, группы LuckPerms.
+4. Двуязычность RU/EN (требование юзера): исследовать Triton vs свои переводы в плагинах + языки Sonar/LibreLogin/Essentials.
+5. Prod-этап: systemd, nftables, fail2ban, DNS (юзер даст домен), TCPShield Free.
+
+## Как проверить, что всё живо
+```bash
+cd /projects/server && ./infra/dev.sh status
+ss -tulpn | grep -E "25566|19133"
+curl -s "https://api.mcsrvstat.us/3/72.61.185.5:25566" | jq .online
+tail -20 minecraft/dev/velocity/logs/latest.log
+```

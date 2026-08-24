@@ -8,11 +8,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ENV_NAME=dev
 BASE="$ROOT/minecraft/$ENV_NAME"
+JAVA="${JAVA:-/usr/lib/jvm/temurin-25-jdk-amd64/bin/java}"   # MC 26.x requires Java 25+
 
-SERVERS=(survival velocity)   # start order; stop order is reversed. Lobby joins in phase 4 (2+ modes).
+SERVERS=(limbo survival velocity)   # start order; stop order is reversed. Lobby joins in phase 4 (2+ modes).
 
-jar_of()  { case "$1" in velocity) echo velocity.jar ;; *) echo paper.jar ;; esac; }
-heap_of() { case "$1" in velocity) echo "-Xms256M -Xmx512M" ;; lobby) echo "-Xms512M -Xmx1G" ;; survival) echo "-Xms1G -Xmx2560M" ;; esac; }
+jar_of()  { case "$1" in velocity) echo velocity.jar ;; limbo) echo NanoLimbo.jar ;; *) echo paper.jar ;; esac; }
+heap_of() { case "$1" in velocity) echo "-Xms256M -Xmx512M" ;; limbo) echo "-Xms64M -Xmx128M" ;; lobby) echo "-Xms512M -Xmx1G" ;; survival) echo "-Xms1G -Xmx2560M" ;; esac; }
 
 AIKAR_FLAGS="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1"
 VELOCITY_FLAGS="-XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15"
@@ -22,11 +23,12 @@ session() { echo "mq-$ENV_NAME-$1"; }
 flags_of() {
   case "$1" in
     velocity) echo "$VELOCITY_FLAGS" ;;
+    limbo)    echo "" ;;
     *)        echo "$AIKAR_FLAGS" ;;
   esac
 }
 
-tail_args() { case "$1" in velocity) echo "" ;; *) echo "nogui" ;; esac; }
+tail_args() { case "$1" in velocity|limbo) echo "" ;; *) echo "nogui" ;; esac; }
 
 start_one() {
   local s="$1" sess dir

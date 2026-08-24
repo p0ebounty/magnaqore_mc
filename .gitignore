@@ -4,6 +4,11 @@ infra/secrets/
 *.env
 !*.env.example
 
+# configs carrying secrets: rendered from committed *.template.* files (infra/render-configs.sh)
+minecraft/**/config/paper-global.yml
+minecraft/**/plugins/librelogin/config.conf
+minecraft/**/plugins/luckperms/config.yml
+
 # --- minecraft runtime state ---
 minecraft/**/world/
 minecraft/**/world_nether/
@@ -22,6 +27,7 @@ minecraft/**/session.lock
 
 # jars are restored via infra/download.sh from infra/manifest.json
 minecraft/**/*.jar
+infra/cache/
 
 # per-plugin data (configs ARE versioned; data files are not)
 minecraft/**/plugins/*/userdata/

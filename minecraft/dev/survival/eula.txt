@@ -1,0 +1,2 @@
+# Accepting the Minecraft EULA (https://aka.ms/MinecraftEULA) is required to run the server.
+eula=true

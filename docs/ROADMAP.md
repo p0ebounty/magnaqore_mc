@@ -8,25 +8,31 @@
 - ✅ Репозиторий: структура, CLAUDE.md, .gitignore, ADR, скрипты (download/dev/backup)
 - ✅ Ресёрч: рынок и форматы (docs/RESEARCH.md), тех. стек
 
-## Фаза 1 — Dev-ядро 🔄
+## Фаза 1 — Dev-ядро 🔄 (почти готово)
 Цель: рабочая dev-сеть, в которую можно зайти и играть в выживание.
-- 🔄 Манифест версий (Paper 26.x, Velocity, плагины) + скачивание
-- ⏳ Конфигурация: Velocity (modern forwarding) + Paper survival (только localhost)
-- ⏳ Кроссплей: Geyser + Floodgate на proxy
-- ⏳ Авторизация: offline-mode + регистрация, автовход для premium, Postgres
-- ⏳ База плагинов: LuckPerms (Postgres), EssentialsX, Vault, PlaceholderAPI, WorldGuard, CoreProtect, GriefPrevention, ViaVersion, Chunky, spark
-- ⏳ Пробный запуск, вход с Java-клиента (юзер) — критерий приёмки
+- ✅ Манифест версий (Paper 26.2-116, Velocity 4.0.0, Java 25) + скачивание по манифесту
+- ✅ Конфигурация: Velocity (modern forwarding) + NanoLimbo (авторизация) + Paper survival (только localhost)
+- ✅ Кроссплей: Geyser + Floodgate на proxy (UDP 19133), Floodgate и на backend
+- ✅ Авторизация: LibreLoginProd — offline-регистрация, автовход premium (/premium), Bedrock без пароля; Postgres
+- ✅ База плагинов: LuckPerms (Postgres storage+messaging), EssentialsX (dev-сборка), Vault(Unlocked), PlaceholderAPI, WorldEdit, WorldGuard, GriefPrevention, ViaVersion/Backwards, Chunky (CoreProtect выпал — ждёт 26.2-сборки)
+- ✅ Защита с первого дня: GrimAC (античит), Sonar (антибот), EpicGuard (гео/VPN), AntiCrasher — см. RESEARCH-SECURITY.md
+- ✅ Сеть запущена и видна из интернета (внешний пинг ОК)
+- ⏳ Вход юзера с Java-клиента (72.61.185.5:25566) и/или Bedrock (порт 19133) — критерий приёмки
 
 ## Фаза 1.5 — Наполнение выживания ⏳
 - ⏳ Сид с красивым спавном (проверенный для 26.2), worldborder 10000, прегенерация Chunky r=5000 (+Nether r=625)
-- ⏳ Спавн: бесплатная схематика (PMC/BuiltByBit, с указанием автора) через WorldEdit/FAWE
-- ⏳ Первый свой Java-плагин **MagnaQoreCore** (Gradle, paper-api): приветствия, MOTD, /spawn-логика, задел под кланы/статистику в Postgres
+- ⏳ Спавн: бесплатная схематика (PMC/BuiltByBit, с указанием автора) через WorldEdit
+- ⏳ Первый свой Java-плагин **MagnaQoreCore** (Gradle, paper-api): приветствия, MOTD, /spawn-логика, задел под кланы/статистику в Postgres — сразу двуязычный (RU/EN по локали клиента)
+- ⏳ **Двуязычность RU/EN** (требование юзера): свои плагины — по локали клиента; чужие — изучить Triton-подход vs ручные локали (Sonar/LibreLogin/Essentials имеют файлы сообщений)
 - ⏳ Контент: Jobs Reborn, могилы (AngelChest/GravesX), анти-комбатлог, стартовый квест (BetonQuest)
 - ⏳ Балансировка прав LuckPerms (группы: default, vip, moder, admin)
+- ⏳ Вернуть CoreProtect (когда выйдет 26.2-сборка) — до этого нет роллбека гриферства; пересмотреть FAWE
+- ⏳ Донастройка Sonar (база verified-игроков, сообщения)
 
 ## Фаза 2 — Prod и публичный запуск ⏳
-- ⏳ Prod-контур: systemd-юниты, автозапуск, рестарты
-- ⏳ Firewall (ufw): 22, 25565/tcp, 19132/udp (+dev-порты по решению)
+- ⏳ Prod-контур: systemd-юниты, автозапуск, рестарты, непривилегированный юзер вместо root
+- ⏳ Firewall: nftables (synproxy TCP, pps-лимиты UDP 19132 — референсы в RESEARCH-SECURITY.md), fail2ban, SSH-харденинг
+- ⏳ TCPShield Free для Java-порта при первой серьёзной атаке (+haproxy-protocol на Velocity)
 - ⏳ DNS: сказать пользователю, какие записи создать (A `play.<домен>`; SRV для dev)
 - ⏳ Бэкапы по крону + ротация, мониторинг (spark, метрики хоста)
 - ⏳ GitHub: пользователь создаёт репозиторий и выдаёт ключ → push, дальше регулярно

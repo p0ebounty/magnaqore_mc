@@ -1,0 +1,154 @@
+{
+  "_comment": "Single source of truth for all binaries. Edit versions here, then run infra/download.sh. MC target: 26.2. Research: docs/RESEARCH.md, versions verified 2026-08-24.",
+  "downloads": [
+    {
+      "name": "paper",
+      "version": "26.2-116",
+      "url": "https://fill-data.papermc.io/v1/objects/17eee738bc0f6b747646be4199672c4efcb2084efd7e291ec5254a45d5ae6f2e/paper-26.2-116.jar",
+      "sha256": "17eee738bc0f6b747646be4199672c4efcb2084efd7e291ec5254a45d5ae6f2e",
+      "dest": ["minecraft/dev/survival/paper.jar"]
+    },
+    {
+      "name": "velocity",
+      "version": "4.0.0-6",
+      "_comment": "v4 required: current Geyser builds link against v4's adventure lib (NoSuchMethodError on 3.5.1). Full stack verified working on v4 2026-08-24.",
+      "url": "https://fill-data.papermc.io/v1/objects/4540289f48c83e305fc2f2c495a84d1f4d0b7f360830251e169dd5a208740e70/velocity-4.0.0-6.jar",
+      "sha256": "4540289f48c83e305fc2f2c495a84d1f4d0b7f360830251e169dd5a208740e70",
+      "dest": ["minecraft/dev/velocity/velocity.jar"]
+    },
+    {
+      "name": "geyser-velocity",
+      "version": "2.11.2-b1231",
+      "url": "https://download.geysermc.org/v2/projects/geyser/versions/2.11.2/builds/1231/downloads/velocity",
+      "dest": ["minecraft/dev/velocity/plugins/Geyser-Velocity.jar"]
+    },
+    {
+      "name": "floodgate-velocity",
+      "version": "2.2.5-b140",
+      "url": "https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/140/downloads/velocity",
+      "dest": ["minecraft/dev/velocity/plugins/floodgate-velocity.jar"]
+    },
+    {
+      "name": "floodgate-spigot",
+      "version": "2.2.5-b140",
+      "url": "https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/140/downloads/spigot",
+      "dest": ["minecraft/dev/survival/plugins/floodgate-spigot.jar"]
+    },
+    {
+      "name": "librelogin-prod",
+      "version": "0.25.11",
+      "url": "https://cdn.modrinth.com/data/hWYRE2rd/versions/Qp2MdIWT/LibreLoginProd-0.25.11.jar",
+      "dest": ["minecraft/dev/velocity/plugins/LibreLoginProd.jar"]
+    },
+    {
+      "name": "luckperms-velocity",
+      "version": "5.5.71",
+      "url": "https://cdn.modrinth.com/data/Vebnzrzj/versions/tamnmXad/LuckPerms-Velocity-5.5.71.jar",
+      "dest": ["minecraft/dev/velocity/plugins/LuckPerms-Velocity.jar"]
+    },
+    {
+      "name": "luckperms-bukkit",
+      "version": "5.5.71",
+      "url": "https://cdn.modrinth.com/data/Vebnzrzj/versions/b0mk8uS6/LuckPerms-Bukkit-5.5.71.jar",
+      "dest": ["minecraft/dev/survival/plugins/LuckPerms-Bukkit.jar"]
+    },
+    {
+      "name": "spark-velocity",
+      "version": "1.10.180",
+      "url": "https://ci.lucko.me/job/spark/lastSuccessfulBuild/artifact/spark-velocity/build/libs/spark-1.10.180-velocity.jar",
+      "dest": ["minecraft/dev/velocity/plugins/spark-velocity.jar"]
+    },
+    {
+      "name": "essentialsx",
+      "version": "2.22.1-dev+21-d5dc7e3",
+      "_comment": "dev build 1825 (2026-08-23) with MC 26.2 support; stable 2.22.0 refuses 26.2. Pin to release when 2.23.0 ships.",
+      "url": "https://ci.ender.zone/job/EssentialsX/1825/artifact/jars/EssentialsX-2.22.1-dev%2B21-d5dc7e3.jar",
+      "dest": ["minecraft/dev/survival/plugins/EssentialsX.jar"]
+    },
+    {
+      "name": "worldedit",
+      "version": "7.4.5",
+      "_comment": "plain WorldEdit instead of FAWE: FAWE 2.15.4 threw init errors on 26.2 (legacy id registry, WorldInitEvent). Revisit FAWE later for perf.",
+      "url": "https://cdn.modrinth.com/data/1u6JkXh5/versions/F5ea2ov3/worldedit-bukkit-7.4.5.jar",
+      "dest": ["minecraft/dev/survival/plugins/WorldEdit.jar"]
+    },
+    {
+      "name": "worldguard",
+      "version": "7.0.18",
+      "url": "https://cdn.modrinth.com/data/DKY9btbd/versions/btHBavWa/worldguard-bukkit-7.0.18.jar",
+      "dest": ["minecraft/dev/survival/plugins/WorldGuard.jar"]
+    },
+    {
+      "name": "viaversion",
+      "version": "5.11.0",
+      "url": "https://cdn.modrinth.com/data/P1OZGk5p/versions/ZH8459B6/ViaVersion-5.11.0.jar",
+      "dest": ["minecraft/dev/survival/plugins/ViaVersion.jar"]
+    },
+    {
+      "name": "viabackwards",
+      "version": "5.11.0",
+      "url": "https://cdn.modrinth.com/data/NpvuJQoq/versions/hYhg2QBT/ViaBackwards-5.11.0.jar",
+      "dest": ["minecraft/dev/survival/plugins/ViaBackwards.jar"]
+    },
+    {
+      "name": "chunky",
+      "version": "1.5.3",
+      "url": "https://cdn.modrinth.com/data/fALzjamp/versions/MdY6JATr/Chunky-Bukkit-1.5.3.jar",
+      "dest": ["minecraft/dev/survival/plugins/Chunky.jar"]
+    },
+    {
+      "name": "vaultunlocked",
+      "version": "2.20.2",
+      "url": "https://cdn.modrinth.com/data/ayRaM8J7/versions/cLNipSgw/VaultUnlocked-2.20.2.jar",
+      "dest": ["minecraft/dev/survival/plugins/VaultUnlocked.jar"]
+    },
+    {
+      "name": "placeholderapi",
+      "version": "2.12.3",
+      "url": "https://cdn.modrinth.com/data/lKEzGugV/versions/pIvQcXW8/PlaceholderAPI-2.12.3.jar",
+      "dest": ["minecraft/dev/survival/plugins/PlaceholderAPI.jar"]
+    },
+    {
+      "name": "griefprevention",
+      "version": "16.18.7",
+      "_flag": "tags up to 26.1.2, pure-API plugin — expected to work on 26.2, watch logs",
+      "url": "https://cdn.modrinth.com/data/O4o4mKaq/versions/dGfCZHqk/GriefPrevention.jar",
+      "dest": ["minecraft/dev/survival/plugins/GriefPrevention.jar"]
+    },
+    {
+      "name": "nanolimbo",
+      "version": "1.13.0",
+      "_comment": "auth limbo for LibreLogin; supports MC 26.2 (protocol 776), needs JRE 21+",
+      "url": "https://github.com/Nan1t/NanoLimbo/releases/download/v1.13.0/NanoLimbo.jar",
+      "dest": ["minecraft/dev/limbo/NanoLimbo.jar"]
+    },
+    {
+      "name": "grimac",
+      "version": "2.3.74",
+      "_comment": "anticheat; supports 1.7.2-26.2, auto-exempts Bedrock players via Floodgate API on the backend",
+      "url": "https://cdn.modrinth.com/data/LJNGWSvH/versions/sU5dXmrZ/grimac-bukkit-2.3.74-9e26fd9.jar",
+      "dest": ["minecraft/dev/survival/plugins/GrimAC.jar"]
+    },
+    {
+      "name": "sonar-velocity",
+      "version": "2.1.50",
+      "_comment": "antibot: limbo-verifies new IPs before they reach backends. Do NOT enable transfer-based verification (breaks Geyser).",
+      "url": "https://cdn.modrinth.com/data/I2qO6xbc/versions/bMrhLj3X/Sonar-Velocity.jar",
+      "dest": ["minecraft/dev/velocity/plugins/Sonar-Velocity.jar"]
+    },
+    {
+      "name": "epicguard-velocity",
+      "version": "7.6.1",
+      "_flag": "built 2025-08 (pre-Velocity4) — verify on boot",
+      "url": "https://cdn.modrinth.com/data/Z5ayyqQS/versions/D1OCsYIK/EpicGuardVelocity-7.6.1.jar",
+      "dest": ["minecraft/dev/velocity/plugins/EpicGuard-Velocity.jar"]
+    },
+    {
+      "name": "anticrasher-velocity",
+      "version": "2.0.11",
+      "_comment": "malformed/unexpected-packet filtering at the proxy",
+      "url": "https://cdn.modrinth.com/data/jCl6Q4Pv/versions/1hixJAlN/AntiCrasher-velocity-v2.0.11.jar",
+      "dest": ["minecraft/dev/velocity/plugins/AntiCrasher-Velocity.jar"]
+    }
+  ]
+}

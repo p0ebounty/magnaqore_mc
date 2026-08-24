@@ -1,0 +1,9 @@
+# MagnaQore: minimal LuckPerms config, missing keys use plugin defaults.
+server: survival
+storage-method: postgresql
+data:
+  address: 127.0.0.1:5432
+  database: magnaqore_dev
+  username: magnaqore
+  password: '2d0b1561690692486e15259c238c8556f2555b9b793ab9a0'
+messaging-service: auto

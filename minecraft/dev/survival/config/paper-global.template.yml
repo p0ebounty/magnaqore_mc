@@ -1,0 +1,8 @@
+# Template: rendered to paper-global.yml by infra/render-configs.sh
+# (${VELOCITY_SECRET} is replaced with the contents of the env's velocity forwarding.secret).
+# Paper merges this partial config with its defaults on boot and rewrites the full file.
+proxies:
+  velocity:
+    enabled: true
+    online-mode: false
+    secret: '${VELOCITY_SECRET}'
