@@ -96,10 +96,12 @@ public final class MqSpawnCommand implements CommandExecutor {
                     sender.sendMessage(plugin.lang().msg(sender, "mqspawn-usage"));
                     return true;
                 }
-                Location loc = new Location(world,
-                        Double.parseDouble(args[1]) + 0.5,
-                        Double.parseDouble(args[2]),
-                        Double.parseDouble(args[3]) + 0.5, 180f, 0f);
+                int sx = Integer.parseInt(args[1]);
+                int sz = Integer.parseInt(args[3]);
+                double sy = args[2].equals("~")
+                        ? world.getHighestBlockYAt(sx, sz) + 1
+                        : Double.parseDouble(args[2]);
+                Location loc = new Location(world, sx + 0.5, sy, sz + 0.5, 180f, 0f);
                 world.setSpawnLocation(loc);
                 sender.sendMessage(text("spawn point set", NamedTextColor.GREEN));
             }
