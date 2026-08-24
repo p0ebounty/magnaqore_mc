@@ -34,7 +34,7 @@ Dev-сеть ЗАПУЩЕНА и видна из интернета (прове�
 
 ## Следующие шаги (по приоритету)
 1. **Юзер заходит на dev-сервер и проверяет** (IP: 72.61.185.5, Java-порт 25566, Bedrock-порт 19133) — критерий приёмки Фазы 1.
-2. GitHub: юзер создаёт репозиторий + deploy key → первый push.
+2. ✅ GitHub подключён: `git@github.com:p0ebounty/magnaqore_mc.git`, пуш через SSH-алиас `github-magnaqore` (на VPS есть чужой deploy key под `Host github.com` — не трогать!). Пушить после каждой пачки коммитов.
 3. Фаза 1.5 (см. ROADMAP): сид+прегенерация мира, спавн-схематика, MagnaQoreCore (свой плагин), Jobs/могилы/анти-комбатлог, группы LuckPerms.
 4. Двуязычность RU/EN (требование юзера): исследовать Triton vs свои переводы в плагинах + языки Sonar/LibreLogin/Essentials.
 5. Prod-этап: systemd, nftables, fail2ban, DNS (юзер даст домен), TCPShield Free.
