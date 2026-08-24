@@ -124,6 +124,58 @@ public final class MqSpawnCommand implements CommandExecutor {
                     plugin.getLogger().warning("regen failed: " + e);
                 }
             }
+            case "biome" -> {
+                if (args.length < 6) {
+                    sender.sendMessage(plugin.lang().msg(sender, "mqspawn-usage"));
+                    return true;
+                }
+                int x1 = Math.min(Integer.parseInt(args[1]), Integer.parseInt(args[3]));
+                int x2 = Math.max(Integer.parseInt(args[1]), Integer.parseInt(args[3]));
+                int z1 = Math.min(Integer.parseInt(args[2]), Integer.parseInt(args[4]));
+                int z2 = Math.max(Integer.parseInt(args[2]), Integer.parseInt(args[4]));
+                var key = org.bukkit.NamespacedKey.minecraft(args[5].toLowerCase());
+                var biome = org.bukkit.Registry.BIOME.get(key);
+                if (biome == null) {
+                    sender.sendMessage(text("unknown biome: " + args[5], NamedTextColor.RED));
+                    return true;
+                }
+                // biomes are stored in 4x4x4 cells; stepping by 4 covers everything
+                int cells = 0;
+                for (int x = x1; x <= x2; x += 4) {
+                    for (int z = z1; z <= z2; z += 4) {
+                        for (int y = world.getMinHeight(); y < world.getMaxHeight(); y += 4) {
+                            world.setBiome(x, y, z, biome);
+                            cells++;
+                        }
+                    }
+                }
+                sender.sendMessage(text("biome set to " + args[5] + " (" + cells + " cells); "
+                        + "chunks refresh for players on relog/render", NamedTextColor.GREEN));
+            }
+            case "desnow" -> {
+                if (args.length < 5) {
+                    sender.sendMessage(plugin.lang().msg(sender, "mqspawn-usage"));
+                    return true;
+                }
+                int x1 = Math.min(Integer.parseInt(args[1]), Integer.parseInt(args[3]));
+                int x2 = Math.max(Integer.parseInt(args[1]), Integer.parseInt(args[3]));
+                int z1 = Math.min(Integer.parseInt(args[2]), Integer.parseInt(args[4]));
+                int z2 = Math.max(Integer.parseInt(args[2]), Integer.parseInt(args[4]));
+                int removed = 0;
+                for (int x = x1; x <= x2; x++) {
+                    for (int z = z1; z <= z2; z++) {
+                        int top = world.getHighestBlockYAt(x, z);
+                        for (int y = top + 1; y >= top - 30; y--) {
+                            var b = world.getBlockAt(x, y, z);
+                            if (b.getType() == Material.SNOW || b.getType() == Material.POWDER_SNOW) {
+                                b.setType(Material.AIR, true);
+                                removed++;
+                            }
+                        }
+                    }
+                }
+                sender.sendMessage(text("removed " + removed + " snow layers", NamedTextColor.GREEN));
+            }
             case "list" -> {
                 File[] files = schematicsDir().listFiles((d, n) ->
                         n.endsWith(".schem") || n.endsWith(".schematic"));
