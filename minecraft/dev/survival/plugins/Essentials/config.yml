@@ -159,7 +159,7 @@ warn-on-smite: true
 drop-items-if-full: false
 
 # Should Essentials notify players if they have no new mail?
-notify-no-new-mail: true
+notify-no-new-mail: false
 
 # Specifies the cooldown duration, in seconds, between mail notifications for a player.
 # Useful for servers with high mail traffic.
@@ -298,7 +298,6 @@ player-commands:
   - mail
   - mail.send
   - me
-  - motd
   - msg
   - msg.color
   - nick
@@ -471,7 +470,7 @@ debug: false
 # For example, if your server is set to English and a player speaks French, you can set this to true.
 # Essentials will then send messages in French to the player, while messages in the console will remain in English.
 # If a player's language is not known, the server's language (or one defined above) will be used.
-per-player-locale: false
+per-player-locale: true
 
 # Change the default primary and secondary colors used in Essentials messages.
 # Some messages may use custom colors, which must be edited in the appropriate message files.
@@ -1250,8 +1249,8 @@ newbies:
   # Should Essentials announce to the server when someone logs in for the first time?
   # {DISPLAYNAME} will be replaced with the player name.
   # Set to '' to disable.
-  #announce-format: ''
-  announce-format: '&dWelcome {DISPLAYNAME}&d to the server!'
+  # Disabled: MagnaQoreCore handles first-join announcements (docs/STYLE.md)
+  announce-format: ''
 
   # When players spawn for the first time, which spawnpoint should be used?
   # Set to 'none' to use the spawnpoint of the world.

@@ -42,7 +42,7 @@ Dev-сеть ЗАПУЩЕНА и видна из интернета (прове�
 
 ## Следующие шаги (по приоритету)
 1. Дождаться конца прегена овера → запустить незер (см. выше), проверить `chunky continue` после рестартов.
-2. Спавн-схематика: найти бесплатную (Planet Minecraft «with downloadable schematic» / BuiltByBit free), лицензия+кредит в docs/CREDITS.md, вставить WorldEdit у спавна, setworldspawn, WG-регион спавна.
+2. Спавн-схематика: ⚠️ требование юзера — БЕЗ указания чужих авторов в игре. Искать только свободные лицензии без обязательного кредита (CC0 / «no credit required»), иначе строим/генерируем сами. Вставить WorldEdit у спавна, setworldspawn, WG-регион спавна.
 3. Контент: Jobs Reborn, могилы (AngelChest/GravesX), AntiRelog, LP-группы vip/moder (+prefix ✦-стиль).
 4. Стиль дальше: Essentials messages (игровые команды), Sonar kick-экраны, GriefPrevention messages — чек-лист в docs/STYLE.md.
 5. MagnaQoreCore v0.2: /help замена (брендовое меню команд), задел статистики в Postgres.
