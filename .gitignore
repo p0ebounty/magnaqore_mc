@@ -10,6 +10,13 @@ minecraft/**/plugins/librelogin/config.conf
 minecraft/**/plugins/luckperms/config.yml
 
 # --- minecraft runtime state ---
+minecraft/**/.paper/
+minecraft/**/server.properties
+minecraft/**/plugins/Essentials/usermap.bin
+minecraft/**/plugins/Essentials/uuids.bin
+minecraft/**/plugins/Essentials/userdata/
+minecraft/**/plugins/GriefPreventionData/
+minecraft/**/plugins/faststats/
 minecraft/**/world/
 minecraft/**/world_nether/
 minecraft/**/world_the_end/
