@@ -37,7 +37,14 @@ public final class Lang {
         if (!file.exists()) {
             plugin.saveResource("lang/" + code + ".yml", false);
         }
-        return YamlConfiguration.loadConfiguration(file);
+        YamlConfiguration cfg = YamlConfiguration.loadConfiguration(file);
+        // jar resource is the fallback for keys missing on disk (older extracted file)
+        var res = plugin.getResource("lang/" + code + ".yml");
+        if (res != null) {
+            cfg.setDefaults(YamlConfiguration.loadConfiguration(
+                    new java.io.InputStreamReader(res, java.nio.charset.StandardCharsets.UTF_8)));
+        }
+        return cfg;
     }
 
     private String code(CommandSender sender) {

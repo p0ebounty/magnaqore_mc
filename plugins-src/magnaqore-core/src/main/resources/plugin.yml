@@ -9,3 +9,11 @@ commands:
   spawn:
     description: Teleport to the server spawn / Телепорт на спавн
     usage: /spawn
+  mqspawn:
+    description: Rebuild the custom spawn plaza (dev tool)
+    usage: /mqspawn build [x z]
+    permission: magnaqore.dev
+permissions:
+  magnaqore.dev:
+    description: MagnaQore dev tools
+    default: op

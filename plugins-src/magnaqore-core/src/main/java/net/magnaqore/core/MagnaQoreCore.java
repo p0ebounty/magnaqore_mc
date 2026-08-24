@@ -20,6 +20,10 @@ public final class MagnaQoreCore extends JavaPlugin {
         if (spawn != null) {
             spawn.setExecutor(new SpawnCommand(this));
         }
+        var mqspawn = getCommand("mqspawn");
+        if (mqspawn != null) {
+            mqspawn.setExecutor(new net.magnaqore.core.command.MqSpawnCommand(this));
+        }
 
         getLogger().info("MagnaQoreCore enabled (locales: ru, en)");
     }
