@@ -14,3 +14,14 @@ excluded-biomes:
   - ocean
   - river
   - warm_ocean
+locations:
+  '{world}':
+    center:
+      world: world
+      x: -29.0
+      y: 200.0
+      z: 91.0
+      yaw: 0.0
+      pitch: 0.0
+    min-range: 300.0
+    max-range: 4500.0

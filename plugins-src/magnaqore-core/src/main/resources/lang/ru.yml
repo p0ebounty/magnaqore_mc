@@ -4,7 +4,7 @@ quit: "<dark_gray>[</dark_gray><#FF6B6B>-</#FF6B6B><dark_gray>]</dark_gray> <gra
 first-join: "<gray>Впервые с нами: <aqua><name></aqua></gray>"
 welcome-title: "<gradient:#8A2BE2:#00CED1><b>MagnaQore</b></gradient>"
 welcome-subtitle: "<gray>Добро пожаловать, <aqua><name></aqua></gray>"
-welcome-line: "<gray>Выживание с приватами. Начни со <aqua>/spawn</aqua>, защити базу <aqua>золотой лопатой</aqua>.</gray>"
+welcome-line: "<gray>Дикие земли: <aqua>/rtp</aqua> · стартовый набор уже в инвентаре · приват — <aqua>золотая лопата</aqua> · работы: <aqua>/jobs browse</aqua></gray>"
 spawn-done: "<gray>Ты на спавне.</gray>"
 spawn-players-only: "<#FF6B6B>Команда только для игроков.</#FF6B6B>"
 mqspawn-usage: "<gray>Использование: <aqua>/mqspawn build|paste <файл> [x z] [y]|flatten <hx> <hz>|setpoint <x> <y> <z>|list</aqua></gray>"

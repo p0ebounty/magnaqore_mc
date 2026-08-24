@@ -470,84 +470,84 @@ info:
     protection: Protection
     sweeping_edge: Sweeping_Edge
   PotionEffectAliases:
-    luck:
-    - Luck
-    fireresistance:
-    - Fire resistance
-    oozing:
-    - Oozing
-    levitation:
-    - Levitation
-    saturation:
-    - Saturation
-    regeneration:
-    - Regeneration
-    blindness:
-    - Blindness
-    haste:
-    - Haste
-    instantdamage:
-    - Instant damage
-    heroofthevillage:
-    - Hero of the village
-    infested:
-    - Infested
-    windcharged:
-    - Wind charged
-    glowing:
-    - Glowing
-    miningfatigue:
-    - Mining fatigue
-    nausea:
-    - Nausea
-    healthboost:
-    - Health boost
-    absorption:
-    - Absorption
-    trialomen:
-    - Trial omen
-    resistance:
-    - Resistance
-    wither:
-    - Wither
-    poison:
-    - Poison
-    raidomen:
-    - Raid omen
-    weaving:
-    - Weaving
-    slowness:
-    - Slowness
     conduitpower:
     - Conduit power
+    blindness:
+    - Blindness
+    slowfalling:
+    - Slow falling
+    luck:
+    - Luck
     waterbreathing:
     - Water breathing
+    speed:
+    - Speed
+    weakness:
+    - Weakness
+    instanthealth:
+    - Instant health
+    regeneration:
+    - Regeneration
+    raidomen:
+    - Raid omen
+    haste:
+    - Haste
+    infested:
+    - Infested
+    unluck:
+    - Unluck
+    instantdamage:
+    - Instant damage
+    fireresistance:
+    - Fire resistance
+    glowing:
+    - Glowing
+    levitation:
+    - Levitation
+    weaving:
+    - Weaving
     invisibility:
     - Invisibility
+    saturation:
+    - Saturation
+    absorption:
+    - Absorption
+    oozing:
+    - Oozing
     strength:
     - Strength
+    heroofthevillage:
+    - Hero of the village
     nightvision:
     - Night vision
     hunger:
     - Hunger
-    instanthealth:
-    - Instant health
-    weakness:
-    - Weakness
+    jumpboost:
+    - Jump boost
+    poison:
+    - Poison
+    wither:
+    - Wither
+    nausea:
+    - Nausea
+    healthboost:
+    - Health boost
+    windcharged:
+    - Wind charged
     darkness:
     - Darkness
+    trialomen:
+    - Trial omen
+    resistance:
+    - Resistance
+    miningfatigue:
+    - Mining fatigue
     badomen:
     - Bad omen
     dolphinsgrace:
     - Dolphins grace
-    jumpboost:
-    - Jump boost
-    speed:
-    - Speed
-    slowfalling:
-    - Slow falling
-    unluck:
-    - Unluck
+    slowness:
+    - Slowness
 dialog:
   signEditor: Sign Editor
   update: Update

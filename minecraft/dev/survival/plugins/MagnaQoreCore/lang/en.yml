@@ -4,6 +4,6 @@ quit: "<dark_gray>[</dark_gray><#FF6B6B>-</#FF6B6B><dark_gray>]</dark_gray> <gra
 first-join: "<gray>First time with us: <aqua><name></aqua></gray>"
 welcome-title: "<gradient:#8A2BE2:#00CED1><b>MagnaQore</b></gradient>"
 welcome-subtitle: "<gray>Welcome, <aqua><name></aqua></gray>"
-welcome-line: "<gray>Survival with land claims. Start with <aqua>/spawn</aqua>, protect your base with a <aqua>golden shovel</aqua>.</gray>"
+welcome-line: "<gray>Wilderness: <aqua>/rtp</aqua> · starter kit is in your inventory · claim land with a <aqua>golden shovel</aqua> · jobs: <aqua>/jobs browse</aqua></gray>"
 spawn-done: "<gray>You are at spawn.</gray>"
 spawn-players-only: "<#FF6B6B>Only players can use this.</#FF6B6B>"

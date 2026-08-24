@@ -847,7 +847,7 @@ confirm-home-overwrite: false
 # You can control the values of items that are sold to the server by using the /setworth command and 'worth.yml'.
 
 # Defines the balance new players start with.
-starting-balance: 0
+starting-balance: 100
 
 # Defines the cost to use the given commands PER USE.
 # Some commands like /repair have sub-costs. Check the wiki for more information.
@@ -1255,13 +1255,13 @@ newbies:
   # When players spawn for the first time, which spawnpoint should be used?
   # Set to 'none' to use the spawnpoint of the world.
   # Different spawn names can be set using '/setspawn <group>'.
-  spawnpoint: newbies
+  spawnpoint: none
 
   # Should players receive items on their first join?
   # This kit will be given regardless of cost and permissions and won't trigger any kit delay (cooldown).
   # Set to '' to disable.
   #kit: ''
-  kit: tools
+  kit: start
 
 # What priority should Essentials use for handling respawns?
 # Set this to 'none' if you want vanilla respawning behavior.
