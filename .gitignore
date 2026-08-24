@@ -1,0 +1,50 @@
+# --- secrets: never commit ---
+infra/secrets/
+**/forwarding.secret
+*.env
+!*.env.example
+
+# --- minecraft runtime state ---
+minecraft/**/world/
+minecraft/**/world_nether/
+minecraft/**/world_the_end/
+minecraft/**/world_*/
+minecraft/**/logs/
+minecraft/**/cache/
+minecraft/**/libraries/
+minecraft/**/versions/
+minecraft/**/crash-reports/
+minecraft/**/banned-*.json
+minecraft/**/usercache.json
+minecraft/**/ops.json
+minecraft/**/whitelist.json
+minecraft/**/session.lock
+
+# jars are restored via infra/download.sh from infra/manifest.json
+minecraft/**/*.jar
+
+# per-plugin data (configs ARE versioned; data files are not)
+minecraft/**/plugins/*/userdata/
+minecraft/**/plugins/*/data/
+minecraft/**/plugins/*/*.db
+minecraft/**/plugins/*/*.sqlite
+minecraft/**/plugins/*/*.db-journal
+minecraft/**/plugins/bStats/
+minecraft/**/plugins/spark/
+
+# --- java build output ---
+plugins-src/**/build/
+plugins-src/**/target/
+plugins-src/**/.gradle/
+*.class
+
+# --- node / web ---
+node_modules/
+web/.next/
+web/out/
+
+# --- misc ---
+*.log
+*.tmp
+.DS_Store
+backups/
