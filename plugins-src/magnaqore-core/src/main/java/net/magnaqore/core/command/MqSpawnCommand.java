@@ -1,7 +1,6 @@
 package net.magnaqore.core.command;
 
 import net.magnaqore.core.MagnaQoreCore;
-import net.magnaqore.core.spawn.SpawnBuilder;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -41,7 +40,7 @@ public final class MqSpawnCommand implements CommandExecutor {
             z = current.getBlockZ();
         }
         sender.sendMessage(plugin.lang().msg(sender, "mqspawn-building"));
-        Location spawn = new SpawnBuilder(world, x, z).build();
+        Location spawn = new net.magnaqore.core.spawn.CastleSpawnBuilder(world, x, z).build();
         world.setSpawnLocation(spawn);
         sender.sendMessage(plugin.lang().msg(sender, "mqspawn-done"));
         return true;
